@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Dia dos Namorados</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="imagens/dia-dos-namorados.png"image/x-icon">
+</head>
+<body>
+    <div id="splash" class="splash-screen">
+        <div class="splash-content">
+            <h1>Bem-vindo!</h1>
+            <button id="enterSiteBtn" class="enter-site-btn">Clique para entrar</button>
+        </div>
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="musica.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    <div class="music-control">
+        <button id="musicToggle" class="music-button">
+            <span class="music-icon">🎵</span>
+        </button>
+    </div>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Feliz Dia dos Namorados</h1>
+            <div class="relationship-timer">
+                <h2>Nosso Tempo Juntos</h2>
+                <div id="timer">
+                    <div class="time-block">
+                        <span id="years">0</span>
+                        <span class="label">Anos</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="months">0</span>
+                        <span class="label">Meses</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="days">0</span>
+                        <span class="label">Dias</span>
+                    </div>
+                    <div class="time-block">
+                        <span id="hours">0</span>
+                        <span class="label">Horas</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="custom-music-player-section">
+            <div class="custom-music-player">
+                <img class="music-cover" src="imagens/All_That_Matters.jpg" alt="Capa do álbum All That Matters">
+                <div class="music-info">
+                    <div class="music-title">All That Matters</div>
+                    <div class="music-artist">Justin Bieber</div>
+                    <div class="music-duration" id="musicDuration">-03:11</div>
+                </div>
+                <button class="music-play-btn" id="musicPlayBtn">
+                    <img id="musicPlayIcon" src="imagens/botao-play.png" alt="Play" style="width:28px;height:28px;">
+                </button>
+
+                <audio id="customAudio" src="sons/Justin-Bieber-All-That-Matters-(HipHopKit.com).mp3"></audio>
+            </div>
+        </section>
+
+        <section class="photo-gallery">
+            <h2>Nossos Momentos</h2>
+            <div class="gallery-container">
+                <!-- Aqui você pode adicionar suas fotos -->
+                <div class="photo-item">
+                    <img src="imagens/marii.jpg" alt="Nossa foto 1">
+                </div>
+                <div class="photo-item">
+                    <img src="imagens/casal2.jpg" alt="Nossa foto 2">
+                </div>
+                <div class="photo-item">
+                    <img src="imagens/pordosol.jpg" alt="Nossa foto 3">
+                </div>
+                <div class="photo-item">
+                    <img src="imagens/preferida.jpg" alt="Nossa foto 4">
+                </div>
+                <div class="photo-item">
+                    <img src="imagens/aniversario.jpg" alt="Nossa foto 5">
+                </div>
+                <div class="photo-item">
+                    <img src="imagens/nosdois.jpg" alt="Nossa foto 6">
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2>Nossos Vídeos</h2>
+            <div class="video-container">
+                <div class="video-item">
+                    <video autoplay loop muted playsinline>
+                        <source src="videos/videonosso.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                    <p class="video-caption">Momento de amor</p>
+                </div>
+                <div class="video-item">
+                    <video autoplay loop muted playsinline>
+                        <source src="videos/Vídeo .mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                    <p class="video-caption">Aquele dia especial</p>
+                </div>
+                <div class="video-item">
+                    <video autoplay loop muted playsinline>
+                        <source src="videos/videomari.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                    <p class="video-caption">Nossas memórias</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="message">
+            <h2>Para o Amor da Minha Vida</h2>
+            <p class="love-message">
+                Cada momento ao seu lado é um presente. Você é minha inspiração, meu amor e minha melhor amiga.
+                Que possamos continuar construindo memórias maravilhosas juntos.
+            </p>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

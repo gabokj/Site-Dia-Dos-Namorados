@@ -1,0 +1,575 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    background: #000;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 71, 87, 0.4) 0%, transparent 50%),
+        linear-gradient(45deg, #1a1a1a, #2d2d2d);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+    z-index: -2;
+}
+
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+}
+
+.particle:nth-child(1) { left: 10%; top: 20%; animation-duration: 15s; }
+.particle:nth-child(2) { left: 20%; top: 40%; animation-duration: 25s; }
+.particle:nth-child(3) { left: 30%; top: 60%; animation-duration: 20s; }
+.particle:nth-child(4) { left: 40%; top: 80%; animation-duration: 18s; }
+.particle:nth-child(5) { left: 50%; top: 10%; animation-duration: 22s; }
+.particle:nth-child(6) { left: 60%; top: 30%; animation-duration: 17s; }
+.particle:nth-child(7) { left: 70%; top: 50%; animation-duration: 23s; }
+.particle:nth-child(8) { left: 80%; top: 70%; animation-duration: 19s; }
+.particle:nth-child(9) { left: 90%; top: 90%; animation-duration: 21s; }
+.particle:nth-child(10) { left: 15%; top: 85%; animation-duration: 16s; }
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, #ff6b6b, #ff4757, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleGlow 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        filter: brightness(1) drop-shadow(0 0 20px rgba(255, 107, 107, 0.3));
+    }
+    50% {
+        filter: brightness(1.2) drop-shadow(0 0 30px rgba(255, 107, 107, 0.5));
+    }
+}
+
+.relationship-timer {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.relationship-timer h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #ff6b6b;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.time-block {
+    text-align: center;
+    animation: pulse 2s infinite;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.time-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+}
+
+.time-block span {
+    display: block;
+}
+
+.time-block span:first-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.time-block .label {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.photo-gallery, .video-section {
+    margin: 4rem 0;
+}
+
+.photo-gallery h2, .video-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #ff6b6b;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.photo-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.2);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.1);
+}
+
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.video-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.2);
+}
+
+.video-item video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.video-caption {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    color: #ff6b6b;
+}
+
+.message {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    margin-top: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.message h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ff6b6b;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.love-message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+    
+    #timer {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .time-block {
+        flex: 1 1 calc(50% - 1rem);
+    }
+    
+    .gallery-container,
+    .video-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .photo-item img {
+        height: 260px;
+    }
+    .video-item video {
+        height: 250px;
+    }
+}
+
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.music-button:hover {
+    transform: scale(1.1);
+    background: rgba(255, 107, 107, 0.2);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+}
+
+.music-icon {
+    font-size: 24px;
+    color: #fff;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.music-button.playing .music-icon {
+    animation-play-state: running;
+}
+
+.music-button.paused .music-icon {
+    animation-play-state: paused;
+}
+
+.spotify-section {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.spotify-section h2 {
+    color: #ff6b6b;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.spotify-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spotify-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(255, 107, 107, 0.2);
+}
+
+.spotify-container iframe {
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.custom-music-player-section {
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0 2rem 0;
+}
+
+.custom-music-player {
+    display: flex;
+    align-items: center;
+    background: #e74c3c;
+    border-radius: 22px;
+    box-shadow: 0 4px 24px rgba(255, 107, 107, 0.18);
+    padding: 18px 28px;
+    gap: 18px;
+    min-width: 320px;
+    max-width: 420px;
+    width: 100%;
+    position: relative;
+}
+
+.music-cover {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.music-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+
+.music-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+    letter-spacing: 0.5px;
+}
+
+.music-artist {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin-bottom: 2px;
+}
+
+.music-duration {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.music-play-btn {
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 8px;
+    margin-right: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    transition: background 0.2s, transform 0.2s;
+    font-size: 1.2rem;
+}
+.music-play-btn:hover {
+    background: #ffeaea;
+    transform: scale(1.08);
+}
+
+.music-spotify-link {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1db954;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    box-shadow: 0 2px 8px rgba(30,215,96,0.10);
+    transition: background 0.2s, transform 0.2s;
+}
+.music-spotify-link:hover {
+    background: #1ed760;
+    transform: scale(1.08);
+}
+
+@media (max-width: 600px) {
+    .custom-music-player {
+        padding: 10px 8px;
+        gap: 8px;
+        min-width: 0;
+        max-width: 98vw;
+    }
+    .music-cover {
+        width: 40px;
+        height: 40px;
+    }
+    .music-title {
+        font-size: 1rem;
+    }
+    .music-artist, .music-duration {
+        font-size: 0.85rem;
+    }
+    .music-play-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+    .music-spotify-link {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(30, 30, 30, 0.92);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s;
+}
+.splash-content {
+    text-align: center;
+    color: #fff;
+}
+.splash-content h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ff6b6b;
+}
+.enter-site-btn {
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.18);
+    transition: background 0.2s, transform 0.2s;
+}
+.enter-site-btn:hover {
+    background: #ff4757;
+    transform: scale(1.05);
+} 
